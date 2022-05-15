@@ -24,5 +24,11 @@ $ npm run build
 $ npm run deploy
 ```
 
+## 테스트
+- Jest
+```
+$ npm run test
+```
+
 ## ETC
 - Node Version: v.14.18.1
