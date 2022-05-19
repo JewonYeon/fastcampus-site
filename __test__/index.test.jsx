@@ -1,17 +1,28 @@
 // __tests__/index.test.jsx
 
 import { render, screen } from '@testing-library/react'
-import Home from '../pages/index'
+import Index from '../pages/index'
 import '@testing-library/jest-dom'
 
 describe('Home', () => {
-  it('renders a heading', () => {
-    render(<Home />)
+  it('메뉴가 렌더링 되어야 한다.', () => {
+    render( <Index />);
+    const menu = screen.getByRole('navigation');
 
-    const heading = screen.getByRole('heading', {
-      name: /welcome to next\.js!/i,
-    })
+    expect(menu).toBeInTheDocument();
+  })
 
-    expect(heading).toBeInTheDocument()
+  it('배너가 렌더링 되어야 한다.', () => {
+    render( <Index />);
+    const banner = screen.getByRole('banner');
+
+    expect(banner).toBeInTheDocument();
+  })
+
+  it('강의 목록이 렌더링 되어야 한다.', () => {
+    render( <Index />);
+    const lectureList = screen.getByTitle('lectureList')
+
+    expect(lectureList).toBeInTheDocument();
   })
 })
